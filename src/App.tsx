@@ -13,6 +13,7 @@ import { Terminal } from "./pages/Terminal";
 import { TerminalContextProvider } from "./hooks/useTerminalLog";
 import { Contact } from "./pages/Contact";
 import { Experience } from "./pages/Experience";
+import { ParticleBackground } from "./anim/ParticleAnim/ParticleBackground";
 function App() {
 	const { theme, themeLoaded } = useTheme();
 	const [selectedTheme, setSelectedTheme] = useState(theme);
@@ -30,6 +31,7 @@ function App() {
 			<AppStyles />
 			<Router>
 				<ScrollToTop />
+				<ParticleBackground />
 				<TerminalContextProvider>
 					{" "}
 					<Terminal />{" "}

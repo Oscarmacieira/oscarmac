@@ -17,7 +17,7 @@ const ParticlesConfig: any = {
 			type: "polygon",
 			stroke: {
 				width: 1,
-				color: "#e6007a",
+				color: "#00e68a",
 			},
 			polygon: {
 				nb_sides: 4,
@@ -51,7 +51,7 @@ const ParticlesConfig: any = {
 		line_linked: {
 			enable: true,
 			distance: 160.3412060865523,
-			color: "#e6007a",
+			color: "#00e68a",
 			opacity: 0.4,
 			width: 2,
 		},

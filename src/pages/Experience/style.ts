@@ -19,7 +19,7 @@ export const ProfessionalXPCard = styled(Card)`
 			left: -50px;
 			height: 0;
 			animation: grow 1s ease-in forwards;
-			width: 5px;
+      width: 5px;
 			background: ${({ theme }) => theme.palette.color1};
 		}
 		.ball {

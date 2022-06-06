@@ -1,5 +1,4 @@
 import { Container } from "./../../layout/Container";
-import { ParticleBackground } from "../../anim/ParticleAnim/ParticleBackground";
 import { Card } from "../../components/Card";
 import { SquareButton } from "../../components/buttons/SquareButton";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
@@ -7,8 +6,6 @@ import { GradientZone } from "../../layout/interface/Gradient";
 export const Home = () => {
 	return (
 		<div>
-			<GradientZone />
-			{/* <ParticleBackground/> */}
 			<Container
 				style={{
 					alignItems: "center",
@@ -41,7 +38,7 @@ export const Home = () => {
 						</div>
 					</div>{" "}
 					<h1>
-						Gm fren, <br /> I am a web3 entreprenor.
+						Gm fren, <br /> I am a web3 dev.
 						<br />I seek to build the digital interfaces of tomorrow
 					</h1>
 				</Card>
