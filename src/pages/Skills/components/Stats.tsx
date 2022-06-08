@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { start } from "repl";
 import styled from "styled-components";
 import {
@@ -6,7 +6,7 @@ import {
 	SquareButtonAlt,
 } from "../../../components/buttons/SquareButton";
 import { developerSkills } from "../../../utils/Skills";
-
+import { TerminalContext } from "../../../hooks/useTerminalLog";
 export const Stats = ({ title, startingYear, fullArray }) => {
 	const todayYear = new Date().getFullYear();
 	const todayMonth = new Date().getMonth();
@@ -14,7 +14,7 @@ export const Stats = ({ title, startingYear, fullArray }) => {
 	const max = todayYear - startingYear;
 	const [limit, setLimit] = useState(5);
 	const array = [...fullArray].splice(0, limit);
-
+	const { printToConsole } = useContext(TerminalContext);
 	const seeMore = () => {
 		if (limit < fullArray.length) {
 			setLimit(limit + 5);
@@ -62,7 +62,10 @@ export const Stats = ({ title, startingYear, fullArray }) => {
 						<SquareButton
 							className="mt-3"
 							style={{ width: "100%" }}
-							onClick={seeMore}
+							onClick={() => {
+								seeMore();
+								printToConsole(`opening more developer skills`);
+							}}
 						>
 							SEE MORE
 						</SquareButton>
@@ -70,7 +73,10 @@ export const Stats = ({ title, startingYear, fullArray }) => {
 						<SquareButtonAlt
 							className="mt-3"
 							style={{ width: "100%" }}
-							onClick={seeMore}
+							onClick={() => {
+								seeMore();
+								printToConsole(`closing developer skills`);
+							}}
 						>
 							CLOSE
 						</SquareButtonAlt>

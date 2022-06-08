@@ -34,16 +34,16 @@ export const Navbar = () => {
 	}
 	const menus: MenuItem[] = [
 		{
-			name: "/",
-			href: "/",
-		},
-		{
 			name: "SKILLS",
 			href: "/skills",
 		},
 		{
 			name: "EXPERIENCE",
 			href: "/experience",
+		},
+		{
+			name: "PORTFOLIO",
+			href: "/portfolio",
 		},
 		{
 			name: "CONTACT",
@@ -82,7 +82,20 @@ export const Navbar = () => {
 			{" "}
 			<div style={{ zIndex: 2, width: "100%" }}>
 				<Header>
-					{" "}
+					<div
+						style={{ width: "100%", display: "flex", justifyContent: "center" }}
+					>
+						<NavLink
+							to={"/"}
+							onClick={() => printToConsole(`> cd /`)}
+							className={
+								`flex text-center justify-center align-items-center btnNav ` +
+								(pathname === "/" ? "selected" : "")
+							}
+						>
+							/
+						</NavLink>
+					</div>
 					<nav>
 						{menus.map((menu, key) => {
 							return (
@@ -92,8 +105,9 @@ export const Navbar = () => {
 										printToConsole(`> cd ${changeDirectory(menu.name)}`)
 									}
 									className={
-										`flex text-center justify-center align-items-center btnNav ` +
-										(menu.selected !== undefined ? "selected" : "")
+										menu.selected === undefined
+											? "flex text-center justify-center align-items-center btnNav folder"
+											: "flex text-center justify-center align-items-center btnNav folder selected"
 									}
 									key={key}
 								>
@@ -110,8 +124,8 @@ export const Navbar = () => {
 };
 
 const Header = styled.div`
-	display: flex;
-	margin-bottom: 50px;
+  padding-top:30px;	display: flex;
+	margin-bottom: 17px;
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
@@ -134,7 +148,7 @@ const Header = styled.div`
 	}
 
 	nav {
-		padding-top: 50px;
+		padding-top: 20px;
 		padding-bottom: 20px;
 		display: flex;
 		gap: 20px;
@@ -143,49 +157,62 @@ const Header = styled.div`
 	}
 
 	.btnNav {
-		color: white;
-		opacity: 0.6;
-		cursor: pointer;
-		background-image: linear-gradient(
-			to right,
-			${({ theme }) => theme.palette.color1},
-			${({ theme }) => theme.palette.color1} 50%,
-			#ffffff 50%
-		);
-		background-size: 200% 100%;
-		background-position: -100%;
-		width: fit-content;
-		padding: 5px 0;
+ font-size:0.9rem;
+		opacity: 0.8;
 		position: relative;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		transition: all 0.3s ease-in-out;
-		:before {
+    color: ${({ theme }) => theme.palette.contrast};
+    &:hover {opacity:1;}
+	}
+  .folder {
+
+		&:nth-child(1):before {
 			content: "";
-			background: ${({ theme }) => theme.palette.color1};
-
-			display: block;
 			position: absolute;
-			bottom: -3px;
-			left: 0;
-			width: 0;
-			height: 3px;
-			transition: all 0.3s ease-in-out;
+			border-left:0.5px solid ${({ theme }) => theme.palette.contrast};
+			border-top 0.5px solid ${({ theme }) => theme.palette.contrast};
+			left:50%;
+			top: -30px;
+			height: 20px;
+      width: 120px;
+      opacity:0.5;
+		}	&:nth-child(2):before {
+			content: "";
+			position: absolute;
+      opacity:0.5;
+      border-left:0.5px solid ${({ theme }) => theme.palette.contrast};
+			left:50%;
+			top: -29.5px;
+			height: 19.5px;
+			width: 1px;
 		}
 
-		:hover {
-			background-position: 0;
+
+		&:nth-child(4):before {
+			content: "";
+			position: absolute;
+      opacity:0.5;
+			border-right:0.5px solid ${({ theme }) => theme.palette.contrast};
+			border-top 0.5px solid ${({ theme }) => theme.palette.contrast};
+			right:50%;
+			top: -30px;
+			height: 20px;
+			width: 120px;
+		}	&:nth-child(3):before {
+			content: "";
+			position: absolute;
+      border-left:0.5px solid ${({ theme }) => theme.palette.contrast};
+			right:50%;
+      opacity:0.5;
+			top: -29.5px;
+			height: 19.5px;
+			width: 1px;
 		}
 
-		:hover::before {
-			width: 100%;
-		}
 	}
-
-	.selected {
-		opacity: 1;
-		color: red;
-	}
+  .selected {
+    color:${({ theme }) => theme.palette.color1};
+    opacity:1;
+  }
 
 	@keyframes openModal {
 		0% {

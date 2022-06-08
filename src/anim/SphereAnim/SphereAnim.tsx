@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const SphereAnim = () => {
+	function sendEmail() {
+		var link = "mailto:macieiraoscar@icloud.com";
+		window.location.href = link;
+	}
 	return (
-		<SphereAnimStyle>
+		<SphereAnimStyle onClick={sendEmail}>
 			<div className="scene">
 				<div className="wrapper">
 					<div className="globe">
@@ -120,8 +124,12 @@ const SphereAnimStyle = styled.div`
 		transform-style: preserve-3d;
 		animation: spin 25s 0ms linear infinite;
 		@media (max-width: 768px) {
-			width: 70%;
-			height: 70%;
+			width: 35%;
+			height: 35%;
+		}
+		&:hover {
+			cursor: pointer;
+			opacity: 1;
 		}
 	}
 	.ring {

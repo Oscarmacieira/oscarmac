@@ -22,7 +22,7 @@ export const ParticleBackground = () => {
 };
 
 const ParticleBox = styled.div`
-	position: absolute !important;
+	position: fixed !important;
 	width: 100%;
 	height: 100%;
 	top: 0px;

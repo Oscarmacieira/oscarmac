@@ -75,4 +75,23 @@ export const aboutMe = {
 		"Karate",
 		"Social Media",
 	],
+	certifications: [
+		{
+			name: "Web3 dApp Programming",
+			description: "Delivered by Moralis in May 2022",
+		},
+		{
+			name: "French Scientific Baccalaureate",
+			description: "2017 with distincition (Option Maths)",
+		},
+		{
+			name: "IELTS (7.0)",
+			description:
+				"Listening (6.5) - Reading (8.0)\nWriting (5.5) - Speaking (7.0)",
+		},
+		{
+			name: "Google Analytics Certificate",
+			description: "July 2020",
+		},
+	],
 };

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Card = styled.section`
 	background: ${({ theme }) => theme.palette.color6};
 	border: 1px solid ${({ theme }) => theme.palette.color1};
+	z-index: 1;
 	display: flex;
 	flex-direction: column;
 	gap: 35px;

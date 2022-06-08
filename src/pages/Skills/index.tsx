@@ -9,11 +9,48 @@ import { Stats } from "./components/Stats";
 import { aboutMe, designerSkills, developerSkills } from "../../utils/Skills";
 import { H1MdColored } from "../../components/Typography/H1";
 import Flag from "react-flagkit";
-import { Pmd, Psm } from "../../components/Typography/P";
+import { IMdShy, Pmd, Psm } from "../../components/Typography/P";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
+import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
+import ArchitectureIcon from "@mui/icons-material/Architecture";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import SportsMartialArtsIcon from "@mui/icons-material/SportsMartialArts";
+import ShareIcon from "@mui/icons-material/Share";
+import { motion } from "framer-motion";
 export const Skills = () => {
+	function getSkillIcon(icon: string) {
+		switch (icon.toLowerCase()) {
+			case "new tech":
+				return <DeveloperBoardIcon />;
+				break;
+			case "football":
+				return <SportsSoccerIcon />;
+				break;
+			case "design & conception":
+				return <ArchitectureIcon />;
+				break;
+			case "experiences & discovery":
+				return <TravelExploreIcon />;
+
+				break;
+			case "karate":
+				return <SportsMartialArtsIcon />;
+				break;
+			case "social media":
+				return <ShareIcon />;
+				break;
+
+			default:
+				break;
+		}
+	}
 	return (
-		<div>
+		<motion.div
+			initial={{ width: 0 }}
+			animate={{ width: "100%" }}
+			exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+		>
 			<GradientZone />
 			<Container
 				style={{
@@ -27,7 +64,7 @@ export const Skills = () => {
 						<Card style={{ zIndex: 1, width: "100%", height: "fit-content" }}>
 							{" "}
 							<Stats
-								title={"Developer Skill"}
+								title={"Developer Skills"}
 								fullArray={developerSkills.program}
 								startingYear={2019}
 							/>
@@ -95,15 +132,27 @@ export const Skills = () => {
 									className="flex align-items-center my-1"
 									style={{ width: "100%" }}
 								>
-									<CheckCircleIcon className="mr-2" />
-									<Pmd>{elem}</Pmd>
+									{" "}
+									{getSkillIcon(elem)}
+									<Pmd className="ml-2">{elem}</Pmd>
+								</div>
+							))}
+						</div>
+						<div className="border-colored" style={{ width: "100%" }}>
+							<H1MdColored>CERTIFICATIONS/AWARDS</H1MdColored>
+							{aboutMe.certifications.map((elem) => (
+								<div
+									className="flex-column align-items-start my-1"
+									style={{ width: "100%" }}
+								>
+									<Pmd>{elem.name}</Pmd>
+									<IMdShy>{elem.description}</IMdShy>
 								</div>
 							))}
 						</div>
 					</Card>{" "}
 				</SkillGrid>
-				<SquareButton className="mx-1">See CV in pdf</SquareButton>
 			</Container>
-		</div>
+		</motion.div>
 	);
 };

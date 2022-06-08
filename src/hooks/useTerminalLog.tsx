@@ -8,6 +8,12 @@ export const TerminalContextProvider = ({ children: children }) => {
 	const navigate = useNavigate();
 	const [input, setInput] = useState("");
 	const [output, setOutput] = useState("");
+	const [isClose, setIsClose] = useState(false);
+	const closeTerminal = () => setIsClose(true);
+	const openTerminal = () => setIsClose(false);
+
+	const [isFullScren, setFullScreen] = useState(false);
+	const [isCollapse, setIsCollapse] = useState(false);
 	const sendCommand = (e: any) => {
 		if (e.key === "Enter") {
 			let newOutput = "";
@@ -43,6 +49,10 @@ export const TerminalContextProvider = ({ children: children }) => {
 						case isHomeDir ? "contact" : "../contact":
 							navigate("/contact");
 							break;
+						case isHomeDir ? "portfolio" : "../portfolio":
+							navigate("/portfolio");
+							break;
+
 						case "/":
 							navigate("/");
 							break;
@@ -57,6 +67,9 @@ export const TerminalContextProvider = ({ children: children }) => {
 					break;
 				case "pwd":
 					newOutput += `\n${pathname}`;
+					break;
+				case "echo":
+					newOutput += `\n${inputArray.slice(1).join(" ")}`;
 					break;
 				default:
 					newOutput += `\ncommand not found: ${inputArray[0]}`;
@@ -78,6 +91,12 @@ export const TerminalContextProvider = ({ children: children }) => {
 		setOutput,
 		sendCommand,
 		printToConsole,
+		isClose,
+		setIsClose,
+		isFullScren,
+		setFullScreen,
+		isCollapse,
+		setIsCollapse,
 	};
 	useEffect(() => console.log(output), [output]);
 	return (

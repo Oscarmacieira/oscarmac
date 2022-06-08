@@ -3,9 +3,25 @@ import { Card } from "../../components/Card";
 import { SquareButton } from "../../components/buttons/SquareButton";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import { GradientZone } from "../../layout/interface/Gradient";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import { TerminalContext } from "../../hooks/useTerminalLog";
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 export const Home = () => {
+	const words = ["Developer", "Designer", "Builder"];
+	const { text } = useTypewriter({
+		words,
+		loop: 0, // Infinit
+	});
+	const navigate = useNavigate();
+	const { printToConsole } = useContext(TerminalContext);
 	return (
-		<div>
+		<motion.div
+			initial={{ width: 0 }}
+			animate={{ width: "100%" }}
+			exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+		>
 			<Container
 				style={{
 					alignItems: "center",
@@ -37,13 +53,33 @@ export const Home = () => {
 							</div>
 						</div>
 					</div>{" "}
-					<h1>
-						Gm fren, <br /> I am a web3 dev.
-						<br />I seek to build the digital interfaces of tomorrow
-					</h1>
+					<div>
+						<h1>GM fren,</h1>
+						<div className="flex align-items-center">
+							<h1>
+								I am a <i>web3 </i>
+								<span className="colored">
+									{text}
+									<Cursor cursorStyle="_" />{" "}
+								</span>{" "}
+							</h1>
+						</div>{" "}
+						<h1 style={{ maxWidth: 768 }}>
+							With several cards under my sleeve, I seek to build the digital
+							interfaces of tomorrow.
+						</h1>
+					</div>
 				</Card>
-				<SquareButton className="mx-1">See CV in pdf</SquareButton>
+				<SquareButton
+					onClick={() => {
+						printToConsole("opening CV");
+						window.open("/cv.pdf", "_blank");
+					}}
+					className="mx-1"
+				>
+					See CV in pdf
+				</SquareButton>
 			</Container>
-		</div>
+		</motion.div>
 	);
 };

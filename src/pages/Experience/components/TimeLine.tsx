@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IMdShy, PMdShy } from "../../../components/Typography/P";
 import { H1MdColored } from "../../../components/Typography/H1";
 import {
 	SquareButton,
 	SquareButtonAlt,
 } from "../../../components/buttons/SquareButton";
+import { TerminalContext } from "../../../hooks/useTerminalLog";
 
 export const TimeLine = ({ fullArray }) => {
 	const [limit, setLimit] = useState(3);
+	const { printToConsole } = useContext(TerminalContext);
 	return (
 		<>
 			{" "}
@@ -58,11 +60,21 @@ export const TimeLine = ({ fullArray }) => {
 					<>
 						{" "}
 						{limit < fullArray.length ? (
-							<SquareButton onClick={() => setLimit(limit + 3)}>
+							<SquareButton
+								onClick={() => {
+									setLimit(limit + 3);
+									printToConsole(`loading more professional xp`);
+								}}
+							>
 								SEE MORE
 							</SquareButton>
 						) : (
-							<SquareButtonAlt onClick={() => setLimit(3)}>
+							<SquareButtonAlt
+								onClick={() => {
+									setLimit(3);
+									printToConsole(`closing professional xp`);
+								}}
+							>
 								CLOSE
 							</SquareButtonAlt>
 						)}{" "}

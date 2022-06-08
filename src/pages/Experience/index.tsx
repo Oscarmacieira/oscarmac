@@ -11,9 +11,14 @@ import { ProfessionalXPCard } from "./style";
 import { TimeLine } from "./components/TimeLine";
 import { Academic } from "./components/Academic";
 import { SkillGrid } from "../Skills/styles";
+import { motion } from "framer-motion";
 export const Experience = () => {
 	return (
-		<>
+		<motion.div
+			initial={{ width: 0 }}
+			animate={{ width: "100%" }}
+			exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+		>
 			<Container style={{ marginInline: "auto" }}>
 				{" "}
 				<SkillGrid>
@@ -63,6 +68,6 @@ export const Experience = () => {
 					</ProfessionalXPCard>{" "}
 				</SkillGrid>{" "}
 			</Container>
-		</>
+		</motion.div>
 	);
 };

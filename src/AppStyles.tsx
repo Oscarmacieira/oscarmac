@@ -193,6 +193,10 @@ export const AppStyles = createGlobalStyle`
     }
   }
 
+  .colored {
+    color: ${({ theme }) => theme.palette.color1};
+  }
+
 .mobile{
 display:flex;
   @media (max-width: 768px) {

@@ -30,3 +30,33 @@ export const SquareButtonAlt = styled(SquareButton)`
 		border: 1.5px solid transparent;
 	}
 `;
+
+export const SquareButtonMd = styled(SquareButton)`
+	font-size: 0.8rem;
+`;
+
+export const SquareButtonMdWhiteAlt = styled(SquareButtonMd)`
+	background-color: transparent;
+	color: ${({ theme }) => theme.palette.contrast};
+	border: 1.5px solid ${({ theme }) => theme.palette.contrast};
+	&:hover {
+		background-color: ${({ theme }) => theme.palette.contrast};
+		color: ${({ theme }) => theme.palette.secondary};
+		border: 1.5px solid ${({ theme }) => theme.palette.contrast};
+	}
+	&:disabled {
+		background-color: ${({ theme }) => theme.palette.contrast};
+		color: ${({ theme }) => theme.palette.secondary};
+		border: 1.5px solid ${({ theme }) => theme.palette.contrast};
+	}
+`;
+export const SquareButtonMdWhite = styled(SquareButtonMdWhiteAlt)`
+	background-color: ${({ theme }) => theme.palette.contrast};
+	color: ${({ theme }) => theme.palette.secondary};
+	border: 1.5px solid ${({ theme }) => theme.palette.contrast};
+	&:hover {
+		background-color: transparent;
+		color: ${({ theme }) => theme.palette.contrast};
+		border: 1.5px solid ${({ theme }) => theme.palette.contrast};
+	}
+`;

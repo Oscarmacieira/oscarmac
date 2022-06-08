@@ -1,0 +1,79 @@
+import { useState } from "react";
+import {SquareButtonMd,
+	SquareButton,
+	SquareButtonMdWhiteAlt,
+	SquareButtonAlt,
+} from "../../components/buttons/SquareButton";
+import { Card } from "../../components/Card";
+import { Container } from "../../layout/Container";
+import { Grid2, Grid2by2 } from "../../layout/grid/Grid2by2";
+import { portfolio } from "../../utils/Portfolio";
+import { ProjectCard } from "./components/ProjectCard";
+
+export const Portoflio = () => {
+	const [filter, setFilter] = useState("");
+	const [limit, setLimit] = useState(6);
+	function retrieve(arr, value) {
+		let newArr: any = [];
+		for (let x = 0; x < arr.length; x++) {
+			if (arr[x].tags.includes(value)) {
+				newArr.push(arr[x]);
+			}
+		}
+		return newArr;
+	}
+	console.log(retrieve(portfolio.projects, ["CSS"]));
+	const array =
+		filter === "" ? portfolio.projects : retrieve(portfolio.projects, filter);
+
+	return (
+		<Container>
+			<Card style={{ marginInline: "auto", width: "100%" }}>
+				<div
+					className="flex align-items-center"
+					style={{ gap: 10, flexWrap: "wrap", justifyContent: "center" }}
+				>
+					{" "}
+					{portfolio.tags.map((elem) => (
+ <>{filter !== elem ? <SquareButtonMdWhiteAlt
+							onClick={() => {
+								setFilter(elem);
+								setLimit(6);
+							}}
+							key={elem}
+						>
+							{elem}
+ </SquareButtonMdWhiteAlt> : <SquareButtonMd key={elem} disabled={true} > {elem}</SquareButtonMd>
+}	</>			))}
+				</div>{" "}
+				<br />
+				<Grid2by2 style={{ width: "100%", rowGap: 35, columnGap: 35 }}>
+					{[...array].splice(0, limit).map((elem) => (
+						<ProjectCard
+							key={Math.random()}
+							title={elem.title}
+							tags={elem.tags}
+							gitLink={elem.github}
+							behance={elem.behance}
+							prod={elem.prod}
+							img={elem.img}
+						/>
+					))}{" "}
+				</Grid2by2>
+				{array.length > 6 ? (
+					<>
+						{limit < array.length ? (
+							<SquareButton onClick={() => setLimit(limit + 6)}>
+								SEE MORE
+							</SquareButton>
+						) : (
+							<SquareButtonAlt onClick={() => setLimit(6)}>
+								CLOSE
+							</SquareButtonAlt>
+						)}
+					</>
+				) : null}
+			</Card>
+		</Container>
+	);
+};
