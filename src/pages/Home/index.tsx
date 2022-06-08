@@ -71,6 +71,7 @@ export const Home = () => {
 					</div>
 				</Card>
 				<SquareButton
+					style={{ zIndex: 1 }}
 					onClick={() => {
 						printToConsole("opening CV");
 						window.open("/cv.pdf", "_blank");
