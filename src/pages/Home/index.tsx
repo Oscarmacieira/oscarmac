@@ -16,6 +16,7 @@ export const Home = () => {
 	});
 	const navigate = useNavigate();
 	const { printToConsole } = useContext(TerminalContext);
+	const age = new Date().getFullYear() - 1999;
 	return (
 		<motion.div
 			initial={{ width: 0 }}
@@ -57,7 +58,7 @@ export const Home = () => {
 						<h1>GM fren,</h1>
 						<div className="flex align-items-center">
 							<h1>
-								I am a <i>web3 </i>
+								I am a {age}yo <i>web3 </i>
 								<span className="colored">
 									{text}
 									<Cursor cursorStyle="_" />{" "}
