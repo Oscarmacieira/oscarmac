@@ -5,7 +5,7 @@ export const experiences = {
 			title: " Web3 Swiss Knife",
 			company: "Cosmic Exodus",
 			href: "https://www.cosmicexodus.finance",
-			type: "freelancer",
+			type: "core member",
 			img: "cosmicexodus",
 			done: [
 				"dApp development",
@@ -32,7 +32,7 @@ export const experiences = {
 			],
 		},
 		{
-			date: "NOV 2021 - DEC 2021",
+			date: "NOV - DEC 2021",
 			title: "Content Operator Spain",
 			company: "ManoMano",
 			href: "https://www.manomano.es/",
@@ -45,23 +45,23 @@ export const experiences = {
 			],
 		},
 		{
-			date: "MAY 2020 - JULY 2020",
+			date: "MAY - JULY 2020",
 			title: "Platform Officer",
 			company: "Henri Wartner Group",
 			href: "https://www.henriwartner.fr/",
-			type: "Summer job",
+			type: "intership",
 			img: "hwg",
 			done: [
-				"Support for the conversion of an industrial laundry to the manufacture & distribution in B2B/B2C of certified masks in the context of the health crisis.",
+				"Support of a new business development (manufacturing and distribution of certified mask in B2B/B2C) during the covid crisis",
 				"Conception and Design of the brand identity",
 				"Price study",
 				"Online sale platform implementation on Wordpress",
 			],
 		},
 		{
-			date: "MAY 2018 - JULY 2018",
+			date: "MAY - JULY 2018",
 			title: "Assistant Project Manager",
-			type: "Internship",
+			type: "internship",
 			company: "TBWA GROUP",
 			href: "https://www.tbwa-paris.com/fr",
 			img: "tbwa",
@@ -75,7 +75,7 @@ export const experiences = {
 		{
 			date: "JULY 2015",
 			title: "Assistant Designer",
-			type: "Internship",
+			type: "internship",
 			company: "Jesus & Gabriel",
 			href: "https://jesusetgabriel.com/",
 			img: "jesusetgabriel",
@@ -87,20 +87,20 @@ export const experiences = {
 	personnal: [
 		{
 			date: "APR 2021 - TODAY",
-			title: "FONDATOR",
+			title: "FOUNDER",
 			company: "BLOCKSWAN",
 			href: "https://blockswan.finance",
 			done: [
-				"Lazy friends asking to invest their money in digital assets so I built a quick platform for them to track their investments/learn about blockchain.",
+				"Development of a web3 dApp to track digital assets investments/learn about blockchain technology to answer lazy friends demand.",
 			],
 		},
 		{
 			date: "2014 - TODAY",
-			title: "Designer",
+			title: "Designer-Developer",
 			company: "Oscar Design",
 			href: "https://www.behance.net/OscarDzn",
 			done: [
-				"Sale of graphic creations (logos, banners, webdesign, jerseys between others) marketed in the e-sports/crypto market through social networks.",
+				"Sale of graphic creations (logos, banners, webdesign, jerseys...) and webApps marketed in the e-sports/crypto market through social networks.",
 			],
 		},
 		{
@@ -124,7 +124,7 @@ export const experiences = {
 				},
 				{
 					university: "ESGI",
-					date: "AUG 2021 - DEC 2022",
+					date: "AUG - DEC 2021",
 					description: "Computer sciences first academic approach",
 				},
 			],
@@ -141,7 +141,7 @@ export const experiences = {
 					university: " Paris Dauphine | UC3M",
 					date: "SEPT 2017 - JULY 2019",
 					description:
-						"First 2 years of the bachelor at the University of Paris - Dauphine with courses in Spanish and English. (40 students selected)",
+						"First 2 years of the bachelor in Madrid with courses in Spanish and English. (40 students selected)",
 				},
 			],
 		},
@@ -156,7 +156,7 @@ export const experiences = {
 				},
 				{
 					university: "GeorgeTown University",
-					date: "JULY 2017 - SEP 2017",
+					date: "JULY - SEP 2017",
 					description:
 						"TOP 14 US. Courses in Psychology / Sociology, Sports Law & Computer Sciences in total immersion in an American University at D.C.",
 				},

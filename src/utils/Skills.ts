@@ -82,7 +82,7 @@ export const aboutMe = {
 		},
 		{
 			name: "French Scientific Baccalaureate",
-			description: "2017 with distincition (Option Maths)",
+			description: "2017 with distinction (Option Maths)",
 		},
 		{
 			name: "IELTS (7.0)",

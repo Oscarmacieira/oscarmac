@@ -55,7 +55,7 @@ export const Home = () => {
 						</div>
 					</div>{" "}
 					<div>
-						<h1>GM fren,</h1>
+						<h1>GM friend,</h1>
 						<div className="flex align-items-center">
 							<h1>
 								I am a {age}yo <i>web3 </i>
